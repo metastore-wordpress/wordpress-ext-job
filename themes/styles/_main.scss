@@ -1,0 +1,79 @@
+.wp-ext-job {
+	.job-grid {
+		display: grid;
+		grid-gap: 0 2rem;
+		grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+		.entry-title {
+			font-size: 2rem;
+		}
+	}
+	.job-content {
+		margin-bottom: 4rem;
+		section {
+			$bg_color: hsl(0, 0%, 96%);
+
+			background: $bg_color;
+			border-radius: .4rem;
+			padding: 2rem;
+			margin-bottom: 2rem;
+			h4 {
+				&:first-child {
+					margin-top: 0;
+				}
+			}
+		}
+		> section {
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		section.job-meta {
+			.job-meta-content {
+				display: grid;
+				grid-gap: 0 1rem;
+				grid-template-columns: 2rem 1fr;
+			}
+		}
+	}
+}
+
+.archive.wp-ext-job {
+	main {
+		.job-content {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.widget.wp-ext-job {
+	.job-grid {
+		display: grid;
+		grid-gap: 0 2rem;
+		grid-template-columns: min-content 1fr;
+	}
+	.job-cover {
+		a {
+			$bg_color: hsl(0, 0%, 96%);
+			$size: 8rem;
+
+			display: grid;
+			background: $bg_color no-repeat 50%;
+			background-size: cover;
+			border: .5rem solid $bg_color;
+			border-radius: .4rem;
+			width: $size;
+			height: $size;
+			i {
+				font-size: ($size / 2);
+				color: hsl(0, 0%, 86%);
+				align-self: center;
+				justify-self: center;
+			}
+		}
+	}
+	.job-title {
+		a {
+			color: #333;
+		}
+	}
+}

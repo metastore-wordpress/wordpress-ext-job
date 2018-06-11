@@ -1,0 +1,25 @@
+@media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+	.wp-ext-job {
+		.job-grid {
+			display: flex;
+			margin-bottom: 1rem;
+			> section {
+				box-sizing: border-box;
+				width: 50%;
+				margin: 2rem;
+			}
+		}
+	}
+	.widget.wp-ext-job {
+		.job-grid {
+			.job-cover {
+				margin-right: 2rem;
+				a {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+			}
+		}
+	}
+}
