@@ -2,14 +2,12 @@
 
 /**
  * Class WP_EXT_Job_Post_Type
- * ------------------------------------------------------------------------------------------------------------------ */
-
+ */
 class WP_EXT_Job_Post_Type extends WP_EXT_Job {
 
 	/**
 	 * Constructor.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function __construct() {
 		parent::__construct();
 
@@ -18,8 +16,7 @@ class WP_EXT_Job_Post_Type extends WP_EXT_Job {
 
 	/**
 	 * Plugin: `initialize`.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function run() {
 		add_action( 'init', [ $this, 'post_type' ], 0 );
 		add_action( 'init', [ $this, 'post_rewrite' ] );
@@ -28,8 +25,7 @@ class WP_EXT_Job_Post_Type extends WP_EXT_Job {
 
 	/**
 	 * Post type: `job`.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function post_type() {
 		$labels  = [
 			'name'                  => _x( 'Вакансии', 'Job General Name', 'wp-ext-' . $this->domain_ID ),
@@ -91,8 +87,7 @@ class WP_EXT_Job_Post_Type extends WP_EXT_Job {
 
 	/**
 	 * Rewrite rules.
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function post_rewrite() {
 		add_rewrite_rule(
 			$this->pt_ID . '/([0-9]+)?$',
@@ -108,8 +103,7 @@ class WP_EXT_Job_Post_Type extends WP_EXT_Job {
 	 * @param int $id
 	 *
 	 * @return string
-	 * -------------------------------------------------------------------------------------------------------------- */
-
+	 */
 	public function post_link( $url, $id = 0 ) {
 		$post    = get_post( $id );
 		$post_ID = $post->ID;
@@ -133,8 +127,7 @@ class WP_EXT_Job_Post_Type extends WP_EXT_Job {
  * Helper function to retrieve the static object without using globals.
  *
  * @return WP_EXT_Job_Post_Type
- * ------------------------------------------------------------------------------------------------------------------ */
-
+ */
 function WP_EXT_Job_Post_Type() {
 	static $object;
 
@@ -147,6 +140,5 @@ function WP_EXT_Job_Post_Type() {
 
 /**
  * Initialize the object on `plugins_loaded`.
- * ------------------------------------------------------------------------------------------------------------------ */
-
+ */
 add_action( 'plugins_loaded', [ WP_EXT_Job_Post_Type(), 'run' ] );
